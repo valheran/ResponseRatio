@@ -1,0 +1,37 @@
+Plugin Builder Results
+
+Your plugin ResponseRatio was created in:
+  C:\Users\abrown2\.qgis2\python\plugins\ResponseRatio
+Your QGIS plugin directory is located at:
+  C:/Users/abrown2/.qgis2/python/plugins
+
+What's Next
+
+Copy the entire directory containing your new plugin to the QGIS plugin directory
+Compile the ui file using pyuic4
+Compile the resources file using pyrcc4
+Test the plugin by enabling it in the QGIS plugin manager
+Customize it by editing the implementation file responseratio.py
+Create your own custom icon, replacing the default icon.png
+Modify your user interface by opening responseratio.ui in Qt Designer (don't forget to compile it with pyuic4 after changing it)
+You can use the Makefile to compile your Ui and resource files when you make changes. This requires GNU make (gmake)
+
+
+
+Reconfigure Dialog box
+	#have an execute button to allow multiple calculations to be triggered in a single dialog session Done V0.2
+	#have a table of box to keep track of what elements have been calculated Done V0.2
+	#Title and quick description? Done V0.2
+	#help button? V0.2- added but not implemented functionality
+	
+Error handling and reconciliation
+	*Having nulls (unless because there was no assay for that sample) and -ve values (due to values being below detection) is not appropriate for this method
+	*nulls also throw errors in the calculation routine (appear in python as type "None" which cannot be accepted by the functions
+		# Convert nulls to 0's on the fly. rows which were originally null still output 'null' in the result Done V0.2
+		# Exclude 0's from background calculation Done V0.2
+	*below detection is generally replaced with a nominal value, usually half detection
+		#make error check routine that checks column for -ve values
+		#if detected, trigger a dialog box to inform of this occurence, and a prompt to indicate what value should be used to replace
+		#run a loop through to replace -ve with nominated value
+	
+	
